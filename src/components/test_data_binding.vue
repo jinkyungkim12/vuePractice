@@ -1,7 +1,25 @@
 <template>
   <div class="data_binding">
-    
-    <h1>{{ msg }}</h1> 
+    <form>
+      <div class="container">
+      <div class="text-center mb-3 mt-3"><h3><b>{{ msg }}</b></h3></div> 
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="staticEmail" value="email@example.com">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword">
+          </div>
+        </div>
+        <div class="mb-3 row justify-content-center">
+          <button class="btn btn-dark" type="submit" id="loginBtn">Login</button>
+        </div>
+      </div>
+    </form>
 
   </div>
 </template>
@@ -23,8 +41,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1 {
-  margin: 40px 0 0;
+h3 {
   color: #42b983;
+}
+#loginBtn{
+  color: #42b983;
+  width: 200px;
+}
+.container{
+  width: 30%;
 }
 </style>
