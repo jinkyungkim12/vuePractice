@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <form>
+    <form v-on:submit.prevent="loginUser">
       <div class="container">
       <div class="text-center mb-3 mt-3"><h3><b>{{ msg }}</b></h3></div> 
         <div class="mb-3 row">
@@ -12,7 +12,7 @@
         <div class="mb-3 row">
           <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" ref="inputPassword" value="password">
+            <input type="password" class="form-control" id="inputPassword" ref="inputPassword">
           </div>
         </div>
         <div class="mb-3 row justify-content-center">
@@ -20,7 +20,6 @@
         </div>
       </div> 
     </form>
-
   </div>
 </template>
 
@@ -33,7 +32,7 @@ export default {
 }
 //   methods: {
 //     test() {
-//       console.log('log')
+//       console.log('dfsdf')
 //     }
 //   },
 // }

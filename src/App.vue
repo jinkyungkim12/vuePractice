@@ -11,16 +11,13 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
 // export default {
 //   name: 'App',
 //   components: {
 //     HelloWorld
 //   }
 // }
-
 import test_login from './components/test_login.vue'
-
 export default {
   name: 'App',
   components: {
