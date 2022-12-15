@@ -6,6 +6,11 @@
 
   <div id="app">
     <test_login msg="로그인 테스트"/>
+    <div>
+      <div><router-link to="/">Home!</router-link></div>
+      <div><router-link to="/about">About!</router-link></div>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
