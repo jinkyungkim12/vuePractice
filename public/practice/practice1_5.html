@@ -13,26 +13,43 @@
 </head>
 <body>
     <div id="app">
-        {{ nextYear('안녕하세요') }}
-        <input :type="type" :value="inputData">
-        <a :href="getKossieCoderLink('kossiecoder')">코지코너 채널</a>
-        <br>
-        <h4>alert이벤트</h4>
-        <br>
-        &nbsp;<button class="btn btn-dark" v-on:click="alert">click me</button>
-        <br>
-        <br>
-        <h4>더하기 빼기 이벤트</h4>
-        &nbsp;<button class="btn btn-primary" v-on:click="plus">plus</button>
-        &nbsp;{{ person.year }}
-        &nbsp;<button class="btn btn-secondary" v-on:click="minus">minus</button>
-        <br>
-        <br>
-        <h4>submit 이벤트</h4>
-        <form>
-            <input type="text"><br>
-            &nbsp;<button class="btn btn-warning" type="submit" v-on:click="submit">submit</button>
-        </form>
+        <div class="container mt-5">
+            <h4>데이터 바인딩 예제</h4>
+            <br>
+            {{ nextYear('안녕하세요') }}
+            <input :type="type" :value="inputData">
+            <a :href="getKossieCoderLink('kossiecoder')">코지코너 채널</a>
+            <br>
+            <br>
+            <h4>alert 이벤트 예제</h4>
+            <br>
+            <button class="btn btn-dark" v-on:click="alert">click me</button>
+            <br>
+            <br>
+            <h4>더하기 빼기 이벤트 예제</h4>
+            <br>
+            <button class="btn btn-primary" v-on:click="plus">plus</button>
+            {{ person.year }}
+            <button class="btn btn-secondary" v-on:click="minus">minus</button>
+            <br>
+            <br>
+            <h4>submit 이벤트 예제</h4>
+            <br>
+            <form>
+                <input type="text">
+                <button class="btn btn-warning" type="submit" v-on:click="submit">submit</button>
+            </form>
+            <br>
+            <br>
+            <h4>데이터 양방향 바인딩 예제</h4>
+            <br>
+            <form v-on:submit.prevent="submit">
+                <!-- <input type="text" :value="text" @keyup="updateText"> -->
+                <input type="text" v-model="text"> 
+                <br>{{ text }}
+            </form>
+
+        </div>
     </div>
     <script>
         new Vue({
@@ -43,6 +60,7 @@
                     age: 30,
                     year: 2020,
                 },
+                text: 'text',
                 inputData: '123456',
                 type: 'number',
                 link: 'https://www.youtube.com/'
@@ -65,7 +83,10 @@
                 },
                 submit(){
                     alert('제출완료');
-                }
+                },
+                // updateText(event){
+                //     this.text = event.target.value;
+                // }
             }
         })
     </script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .abcd{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container mt-5">
+            <h4>06 Computed 속성 예제 - 더하기</h4>
+            <br>
+            {{ number + 1}}
+            <br>
+            <br>
+            <h4>06 Computed 속성 예제 = 스트링의 순서 거꾸로 바꾸기</h4>
+            <br>
+            {{ message.split('').reverse().join('') }}
+            <br>
+            <br>
+            <h4>06 Computed 속성 예제 = 코드 단순화</h4>
+            <br>
+            {{ reversedMessage }}
+            <br>
+            <br>
+            <h4>06 Computed 속성 예제 = 클릭 이벤트</h4>
+            <br>
+            <button @click="changeMessage" class="btn btn-success">click</button>
+            {{ reversedMessage }}
+            <br>
+            <br>
+            <h4>07 Watch 속성 예제 = 클릭 이벤트</h4>
+            <br>
+            {{ message }}<br>
+            <button @click="changeMessage" class="btn btn-danger">click</button><br>
+            {{ updatedMessage }}
+            <br>
+            <br>
+            <h4>08 클래스 & 스타일 바인딩 예제 - class</h4>
+            <br>
+            <div class="red">Hello</div>
+            <div class="bold">Hello</div>
+            <div :class="{ red: isRed, bold: isBold, 'abcd': isAbcd }">Hello</div>
+            <button @click="updt" class="btn btn-dark">click</button>
+            <br>
+            <br>
+            <h4>08 클래스 & 스타일 바인딩 예제 - style</h4>
+            <br>
+            <div :style="{ color: red, fontSize: size }">Hello</div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                number: 1,
+                message: '안녕하세요',
+                updatedMessage: '아니요',
+                isRed: false,
+                red: 'red',
+                size: '30px'
+            },
+            methods: {
+                changeMessage() {
+                    this.message = '헬로우';
+                },
+                updt(){
+                    this.isRed = !this.isRed;
+                    this.isBold = !this.isBold;   
+                    this.isAbcd = !this.isAbcd;
+                }
+            },
+            computed: {
+                reversedMessage(){
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            watch: {
+                message(newV, oldV){
+                    console.log(newV, oldV);
+                    this.updatedMessage = '네';
+                }
+            }
+        })
+    </script>
+</body>
+</html>
